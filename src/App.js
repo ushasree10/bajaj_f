@@ -23,7 +23,7 @@ const App = () => {
             console.log("Parsed Data:", parsedData);
 
             // Call the REST API directly with the parsed data
-            const res = await fetch('https://bajaj-be-1.onrender.com/bfhl', { // Update with your backend URL
+            const res = await fetch('https://bajaj-be-2.onrender.com/bfhl', { // Update with your backend URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
