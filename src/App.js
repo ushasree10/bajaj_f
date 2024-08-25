@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
+// Utility function to update the document title
 const updateTitle = (title) => {
     document.title = title;
 };
@@ -18,12 +19,16 @@ const App = () => {
             // Parse JSON data
             const parsedData = JSON.parse(jsonData);
 
+            // Log parsed data for debugging
+            console.log("Parsed Data:", parsedData);
+
             // Call the REST API directly with the parsed data
-            const res = await fetch('http://localhost:3000/bfhl', {
+            const res = await fetch('https://bajaj-be-1.onrender.com/bfhl', { // Update with your backend URL
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                // Send the parsed data directly
                 body: JSON.stringify(parsedData),
             });
 
@@ -34,7 +39,7 @@ const App = () => {
             // Clear the error if successful
             setError('');
         } catch (err) {
-            // Handle errors, such as JSON parsing errors
+            // Handle any errors, such as JSON parsing errors
             console.error("Error:", err); // Log error for debugging
             setError('Invalid JSON or API error');
             setResponse(null);
@@ -66,6 +71,7 @@ const App = () => {
         );
     };
 
+    // Update the document title to your roll number
     updateTitle("21bps1444");
 
     return (
